@@ -7,7 +7,7 @@ get_temp() {
     # It's a Raspberry pi
     echo "$(vcgencmd measure_temp | sed 's/temp=//')"
   else
-    echo "$(sensors | grep 'Tctl' | awk '{print substr($2, 2)}')"
+    echo "$(sensors | grep "Package id 0:" | awk '{print substr($4, 2)}')"
   fi
 }
 
